@@ -16,4 +16,5 @@ endfunction
 au FileType c,cpp
 	    \ call C_Cpp_command()
 
-
+command -nargs=1 -complete=customlist,tags#ListTagsFile	TagsAddCtags	call tags#AddCtags(<q-args>)
+command -nargs=1 -complete=customlist,tags#ListAddedTagsFile	TagsDelCtags	call tags#DelCtags(<q-args>)
