@@ -7,6 +7,7 @@ let g:ctags_command='ctags -R --sort=1 --c++-kinds=+p --fields=+iaSl --extra=+q'
 let g:csfiles_wildcard = "*.cpp *.c *.h *.hpp *.cc"
 
 function! C_Cpp_command()
+    command! -buffer -nargs=0 CTUpdate       call tags#Update_ctags_data_file()<bar>call cscope#Update_cscope_data_file()
     command! -buffer -nargs=0 TagsUpdate     call tags#Update_ctags_data_file()
     command! -buffer -nargs=0 CsUpdate       call cscope#Update_cscope_data_file()
     command! -buffer -nargs=0 CsFiles        call cscope#Create_cscope_files(0)
