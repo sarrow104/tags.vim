@@ -53,8 +53,8 @@ function! cscope#Update_cscope_data_file()	" {{{1
         call Create_cscope_files(0)
     endif
     " filereadable("./cscope.out") && !filewritable("./cscope.out")
-    if cscope_connection(4, "cscope.out", ".") == 1
-	let cs_connect_id = cscope#Search_cs_link("cscope.out", ".")
+    if cscope_connection(4, fnamemodify("./cscope.out", ":p"), ".") == 1
+	let cs_connect_id = cscope#Search_cs_link(fnamemodify("./cscope.out", ":p"), ".")
 	" echoerr "id = ".cs_connect_id
 	if cs_connect_id != -1
 	    execute "cs kill ".cs_connect_id
